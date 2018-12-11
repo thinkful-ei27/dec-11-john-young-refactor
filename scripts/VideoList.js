@@ -4,6 +4,7 @@
 
 const videoList = function() {
 
+  // HTML list item template for each video
   const generateListItem = function(video) {
     return `
       <li class="thumbnail">
@@ -13,12 +14,14 @@ const videoList = function() {
     `;
   };
 
+  // HTML template for the 'Show more' button
   const generateShowMorebutton = function() {
     return `
       <button class="js-show-more">Show more</button>
     `;
   };
 
+  // Render function for the search results
   const render = function() {
     let html = store.videos.map(video => generateListItem(video));
     $('.results').html(html);
@@ -27,6 +30,7 @@ const videoList = function() {
     }
   };
 
+  // Form submission handler to fetch videos and re-render the HTML
   const handleFormSubmit = function() {
     $('form').on('submit', function(e) {
       e.preventDefault();
@@ -43,6 +47,7 @@ const videoList = function() {
     });
   };
 
+  // Show more button handler to fetch more videos and re-render HTML
   const handleShowMoreButton = function() {
     $('div').on('click', '.js-show-more', function(e) {
       e.preventDefault();

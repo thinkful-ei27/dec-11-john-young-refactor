@@ -11,6 +11,7 @@ const api = (function() {
     return link;
   };
 
+  // Fetch video accepts a search term and callback, and collects data from the Youtube API
   const fetchVideos = function(searchTerm, callback) {
     const data = {
       q: searchTerm,
@@ -24,6 +25,7 @@ const api = (function() {
     $.getJSON(BASE_URL, data, callback);
   };
   
+  // Turns API response into an array of objects for the store
   const decorateResponse = function(response) {
     const {items} = response;
     let {nextPageToken} = response;
