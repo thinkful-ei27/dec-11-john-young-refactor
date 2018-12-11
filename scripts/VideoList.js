@@ -7,7 +7,7 @@ const videoList = function() {
   // HTML list item template for each video
   const generateListItem = function(video) {
     return `
-      <li class="thumbnail">
+      <li class="thumbnail wrapper">
         <a href="${video.videoUrl}"><img src="${video.thumbnail}" alt="${video.videoId}"></a>
         <h3>${video.title}</h3>
       </li>
@@ -54,7 +54,6 @@ const videoList = function() {
       api.fetchVideos(store.lastSearchTerm, function(res) {
         let newVideos = api.decorateResponse(res);
         newVideos.map(video => store.videos.push(video));
-        store.nextPage = undefined;
         render();
       });
       console.log('js show more button working');
