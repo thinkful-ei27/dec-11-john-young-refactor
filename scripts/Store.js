@@ -4,6 +4,8 @@
 
 const store = (function() {
   const videos = [];
+  const nextPage = undefined;
+  const lastSearchTerm = undefined;
 
   const setVideos = function(videos) {
     this.videos = videos;
@@ -11,6 +13,8 @@ const store = (function() {
 
   return {
     videos,
+    nextPage,
+    lastSearchTerm,
     setVideos
   };
 }());
